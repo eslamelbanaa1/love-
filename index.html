@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>لمنمن | رسالة حب</title>
+<meta name="description" content="قلوب بتطير، وكل قلب وراه كلمة من القلب.">
+<meta name="theme-color" content="#3b0f26">
+<meta property="og:title" content="لمنمن | رسالة حب">
+<meta property="og:description" content="قلوب بتطير، وكل قلب وراه كلمة من القلب.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E❤️%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg-a:#fff4f1; --bg-b:#ffd3dc; --bg-c:#f7a9bd;
+  --ink:#4a1128; --muted:#8a4a62; --rose:#d11f4d; --rose-2:#ff5f86;
+  --glass:rgba(255,255,255,.66); --line:rgba(209,31,77,.22); --shadow:rgba(150,20,60,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg-a:#2b0c1d; --bg-b:#3d1029; --bg-c:#5a1638; --ink:#ffe7ee; --muted:#d9a1b5; --rose:#ff4d7a; --rose-2:#ff8fab;
+    --glass:rgba(70,20,46,.62); --line:rgba(255,143,171,.28); --shadow:rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --bg-a:#2b0c1d; --bg-b:#3d1029; --bg-c:#5a1638; --ink:#ffe7ee; --muted:#d9a1b5; --rose:#ff4d7a; --rose-2:#ff8fab;
+  --glass:rgba(70,20,46,.62); --line:rgba(255,143,171,.28); --shadow:rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  background:
+    radial-gradient(70% 50% at 85% 0%,var(--bg-c),transparent 70%),
+    radial-gradient(80% 60% at 10% 100%,var(--bg-b),transparent 70%),
+    var(--bg-a);
+  color:var(--ink);font-family:'Cairo',Tahoma,sans-serif;overflow:hidden;
+  -webkit-tap-highlight-color:transparent;user-select:none;
+}
+.serif{font-family:'Aref Ruqaa','Cairo',serif}
+
+#intro,#end{
+  position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:14px;padding:28px;text-align:center;background:transparent;
+}
+#end{display:none;z-index:30}
+body.ended .bar,body.ended .hint,body.ended #stage{opacity:0;transition:opacity .5s}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.aura{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aura i{position:absolute;border-radius:50%;will-change:transform}
+.aura i:nth-child(1){width:75vmax;height:75vmax;top:-32vmax;right:-22vmax;opacity:.30;background:radial-gradient(circle,var(--rose-2),transparent 62%);animation:d1 24s ease-in-out infinite alternate}
+.aura i:nth-child(2){width:80vmax;height:80vmax;bottom:-40vmax;left:-28vmax;opacity:.22;background:radial-gradient(circle,var(--rose),transparent 62%);animation:d2 30s ease-in-out infinite alternate}
+.aura i:nth-child(3){width:46vmax;height:46vmax;top:24%;left:32%;opacity:.16;background:radial-gradient(circle,var(--rose-2),transparent 62%);animation:d3 36s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate3d(-18vmax,16vmax,0) scale(1.15)}}
+@keyframes d2{to{transform:translate3d(22vmax,-14vmax,0) scale(1.1)}}
+@keyframes d3{to{transform:translate3d(-14vmax,-12vmax,0) scale(1.3)}}
+#end.show{display:flex;animation:fade 1s ease}
+#intro.hide{opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.logo{width:clamp(84px,22vw,120px);height:auto;animation:beat 1.8s ease-in-out infinite;will-change:transform}
+@keyframes beat{0%,100%{transform:scale(1)}25%{transform:scale(1.1)}50%{transform:scale(1)}}
+h1{font-size:clamp(46px,13vw,88px);margin:6px 0 0;line-height:1.1;color:var(--rose);font-weight:700}
+.lead{max-width:30ch;margin:0;font-size:clamp(16px,4.2vw,20px);line-height:1.9;color:var(--muted)}
+.btn{
+  font:inherit;font-weight:700;font-size:17px;border:0;border-radius:999px;padding:14px 38px;margin-top:10px;cursor:pointer;
+  color:#fff;background:linear-gradient(135deg,var(--rose-2),var(--rose));box-shadow:0 10px 26px var(--shadow);
+  transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.97)}
+.btn:focus-visible,.heart:focus-visible{outline:3px solid var(--ink);outline-offset:4px;border-radius:50%}
+
+.bar{
+  position:fixed;top:calc(14px + env(safe-area-inset-top,0px));inset-inline:0;z-index:6;
+  display:flex;flex-direction:column;align-items:center;gap:10px;pointer-events:none;
+}
+.pill{
+  padding:8px 18px;border-radius:999px;font-weight:600;font-size:15px;
+  background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.track{width:min(60vw,260px);height:5px;border-radius:9px;background:var(--line);overflow:hidden}
+.track i{display:block;height:100%;width:100%;transform-origin:right center;transform:scaleX(0);
+  background:linear-gradient(270deg,var(--rose-2),var(--rose));border-radius:9px;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.hint{position:fixed;bottom:calc(26px + env(safe-area-inset-bottom,0px));inset-inline:0;text-align:center;z-index:6;color:var(--muted);font-size:15px;transition:opacity .6s;pointer-events:none}
+.hint.off{opacity:0}
+
+/* Messages */
+#stage{position:fixed;inset:0;z-index:7;display:grid;place-items:center;padding:0 0 8vh;pointer-events:none}
+.msg{
+  grid-area:1/1;width:min(88vw,470px);padding:34px 28px 30px;border-radius:32px;text-align:center;
+  background:var(--glass);border:1px solid var(--line);
+  backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);
+  box-shadow:0 30px 70px -20px var(--shadow),inset 0 1px 0 rgba(255,255,255,.35);
+  opacity:0;will-change:transform,opacity;
+}
+.msg .ico{display:block;width:26px;height:24px;margin:0 auto 14px;color:var(--rose)}
+.msg p{margin:0;font-size:clamp(24px,6.2vw,33px);line-height:1.8;font-weight:700;color:var(--ink)}
+.msg .w{display:inline-block;opacity:0;transform:translateY(12px);filter:blur(4px);
+  transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1),filter .7s ease;transition-delay:calc(var(--i) * 85ms + 180ms)}
+.msg.in .w{opacity:1;transform:none;filter:none}
+.msg .rule{display:block;height:2px;width:44px;margin:18px auto 0;border-radius:2px;background:linear-gradient(90deg,transparent,var(--rose),transparent);
+  transform:scaleX(0);transition:transform 1s cubic-bezier(.16,1,.3,1) .5s}
+.msg.in .rule{transform:scaleX(1)}
+
+/* Hearts */
+.heart{
+  position:fixed;left:0;bottom:0;z-index:3;cursor:pointer;border:0;background:none;padding:10px;line-height:0;
+  will-change:transform,opacity;touch-action:manipulation;
+}
+.heart svg{display:block;width:var(--w);height:auto;transform-origin:center}
+.bit{position:fixed;z-index:8;width:16px;height:15px;margin:-8px 0 0 -8px;pointer-events:none;will-change:transform,opacity}
+
+#end h2{font-size:clamp(52px,15vw,104px);margin:0;color:var(--rose);line-height:1.15;min-height:1.2em}
+#end .sub{margin:0;color:var(--muted);font-size:clamp(15px,4vw,19px)}
+#end .logo{width:clamp(110px,30vw,170px)}
+.caret::after{content:"";display:inline-block;width:3px;height:.8em;margin-inline-start:6px;background:var(--rose);vertical-align:middle;animation:blink .8s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+@media (prefers-reduced-motion: reduce){
+  .logo,.caret::after,.aura i{animation:none}
+  .msg .w{transition-duration:.01s;transition-delay:0s}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="gd" x1="0" y1="0" x2="0" y2="1"><stop offset=".45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient>
+    <symbol id="h" viewBox="0 0 32 29">
+      <path id="hp" d="M16 28.2C-6 13.5 3.5-1.5 16 7.2 28.5-1.5 38 13.5 16 28.2Z" fill="currentColor"/>
+      <path d="M16 28.2C-6 13.5 3.5-1.5 16 7.2 28.5-1.5 38 13.5 16 28.2Z" fill="url(#gl)"/>
+      <path d="M16 28.2C-6 13.5 3.5-1.5 16 7.2 28.5-1.5 38 13.5 16 28.2Z" fill="url(#gd)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="aura" aria-hidden="true"><i></i><i></i><i></i></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<section id="intro">
+  <svg class="logo" style="color:var(--rose)" viewBox="0 0 32 29" aria-hidden="true"><use href="#h"/></svg>
+  <h1 class="serif">لمنمن</h1>
+  <p class="lead">قلوب بتطير في السما، وكل قلب وراه كلمة من القلب. دوسي عليهم واحد واحد.</p>
+  <button class="btn" id="start">ابدأي</button>
+</section>
+
+<div class="bar" aria-live="polite">
+  <div class="pill"><span id="count">٠ من ٧</span></div>
+  <div class="track"><i id="fill"></i></div>
+</div>
+<div id="stage" aria-live="polite"></div>
+<div class="hint" id="hint">دوسي على أي قلب</div>
+
+<section id="end">
+  <svg class="logo" style="color:var(--rose)" viewBox="0 0 32 29" aria-hidden="true"><use href="#h"/></svg>
+  <h2 class="serif" id="final"></h2>
+  <p class="sub">كل الكلام ده قليل عليكي</p>
+  <button class="btn" id="again">من الأول</button>
+</section>
+
+<script>
+const msgs=[
+  "قلبي بيضحك أول ما بفكر فيكي",
+  "وجودك في حياتي أجمل هدية",
+  "يخربيت عيونك، بتخطف قلبي من أول نظرة",
+  "ضحكتك بتنوّر الدنيا كلها",
+  "بحبك يا دلوعتي",
+  "معاكي كل يوم بيبقى عيد",
+  "إنتي الأمان والحضن والدنيا",
+  "يخربيت جمالك، مفيش حد زيك",
+  "صوتك أحلى نغمة سمعتها في حياتي",
+  "كل ما أشوفك قلبي بيدق أسرع",
+  "بحبك يا دلوعتي وهفضل أدلعك العمر كله",
+  "إنتي حلمي اللي بقى حقيقة",
+  "مهما قلت عمري ما هوفّي حقك في الحب",
+  "بحبك يا منمن"
+];
+const FINAL="بحبك يا منمن";
+const colors=["#e0245e","#ff4d7a","#ff7a9c","#c2185b","#f06292","#ff2e63"];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ar=n=>n.toLocaleString('ar-EG');
+const $=id=>document.getElementById(id);
+const stage=$('stage'),count=$('count'),fill=$('fill'),hint=$('hint'),end=$('end'),intro=$('intro');
+const NS='http://www.w3.org/2000/svg';
+let idx=0,running=false,hearts=[],current=null,hideT=null,acc=0,last=0;
+
+function svgHeart(color,w){
+  const s=document.createElementNS(NS,'svg');
+  s.setAttribute('viewBox','0 0 32 29');s.style.color=color;
+  s.innerHTML='<use href="#h"/>';
+  if(w)s.style.setProperty('--w',w+'px');
+  return s;
+}
+function paint(){
+  count.textContent=ar(idx)+' من '+ar(msgs.length);
+  fill.style.transform='scaleX('+(idx/msgs.length)+')';
+}
+
+/* ---------- Hearts: one rAF loop, transform/opacity only ---------- */
+function spawn(startY){
+  const el=document.createElement('button');
+  el.className='heart';el.setAttribute('aria-label','قلب');
+  const w=44+Math.random()*40;
+  el.appendChild(svgHeart(colors[Math.floor(Math.random()*colors.length)],w));
+  const H=innerHeight,W=innerWidth;
+  const o={
+    el,w,
+    x0:w/2+Math.random()*(W-w*1.5),
+    y:startY!==undefined?startY:-w-20,
+    vy:(H*0.085)+Math.random()*(H*0.06),       // px per second
+    amp:reduce?0:14+Math.random()*26,
+    f:.6+Math.random()*.7,
+    ph:Math.random()*6.28,
+    rot:reduce?0:4+Math.random()*7,
+    t:0
+  };
+  el.addEventListener('pointerdown',e=>{e.preventDefault();pick(o,e.clientX,e.clientY)});
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();const r=el.getBoundingClientRect();pick(o,r.left+r.width/2,r.top+r.height/2)}});
+  place(o);document.body.appendChild(el);hearts.push(o);
+}
+function place(o){
+  const H=innerHeight;
+  const x=o.x0+Math.sin(o.ph+o.t*o.f)*o.amp;
+  const r=Math.cos(o.ph+o.t*o.f)*o.rot;
+  const fadeIn=Math.min(1,(o.y+o.w)/120), fadeOut=Math.min(1,(H+o.w-o.y)/160);
+  o.el.style.opacity=Math.max(0,Math.min(fadeIn,fadeOut)).toFixed(3);
+  o.el.style.transform='translate3d('+x.toFixed(1)+'px,'+(-o.y).toFixed(1)+'px,0) rotate('+r.toFixed(2)+'deg)';
+}
+function frame(now){
+  requestAnimationFrame(frame);
+  const dt=Math.min((now-last)/1000,.05);last=now;
+  if(running){acc+=dt;if(acc>=.8&&hearts.length<13){acc=0;spawn()}}
+  for(let i=hearts.length-1;i>=0;i--){
+    const o=hearts[i];o.t+=dt;o.y+=o.vy*dt;
+    if(o.y>innerHeight+o.w+30){o.el.remove();hearts.splice(i,1);continue}
+    place(o);
+  }
+}
+requestAnimationFrame(t=>{last=t;requestAnimationFrame(frame)});
+
+/* ---------- Burst ---------- */
+function burst(x,y,n){
+  for(let k=0;k<n;k++){
+    const b=svgHeart(colors[k%colors.length]);b.setAttribute('class','bit');
+    b.style.left=x+'px';b.style.top=y+'px';document.body.appendChild(b);
+    const a=Math.random()*Math.PI*2,r=60+Math.random()*100,dx=Math.cos(a)*r,dy=Math.sin(a)*r;
+    const s=.6+Math.random()*.7,rt=(Math.random()*160-80);
+    const an=b.animate([
+      {transform:'translate3d(0,0,0) scale('+s*.4+') rotate(0deg)',opacity:0},
+      {transform:'translate3d('+dx*.55+'px,'+dy*.55+'px,0) scale('+s+') rotate('+rt*.5+'deg)',opacity:1,offset:.25},
+      {transform:'translate3d('+dx+'px,'+(dy+50)+'px,0) scale('+s*.3+') rotate('+rt+'deg)',opacity:0}
+    ],{duration:1000+Math.random()*300,easing:'cubic-bezier(.2,.7,.3,1)',fill:'forwards'});
+    an.onfinish=()=>b.remove();
+  }
+}
+function popHeart(o){
+  const i=hearts.indexOf(o);if(i>-1)hearts.splice(i,1);
+  const svg=o.el.firstChild;o.el.style.pointerEvents='none';
+  svg.animate([
+    {transform:'scale(1)',opacity:1},
+    {transform:'scale(1.35)',opacity:1,offset:.35},
+    {transform:'scale(.2)',opacity:0}
+  ],{duration:380,easing:'cubic-bezier(.3,.7,.2,1)',fill:'forwards'}).onfinish=()=>o.el.remove();
+}
+
+/* ---------- Messages ---------- */
+function leave(m,fast){
+  if(!m)return;
+  m.classList.remove('in');
+  const a=m.animate([{opacity:1,transform:'translateY(0) scale(1)'},{opacity:0,transform:'translateY(-26px) scale(.97)'}],
+    {duration:fast?380:650,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
+  a.onfinish=()=>m.remove();
+}
+function showMsg(text){
+  clearTimeout(hideT);
+  if(current)leave(current,true);
+  const m=document.createElement('div');m.className='msg';
+  const words=text.split(' ').map((w,i)=>'<span class="w" style="--i:'+i+'">'+w+'</span>').join(' ');
+  m.innerHTML='<svg class="ico" viewBox="0 0 32 29" aria-hidden="true"><use href="#h"/></svg><p class="serif">'+words+'</p><span class="rule"></span>';
+  stage.appendChild(m);current=m;
+  m.animate([{opacity:0,transform:'translateY(34px) scale(.94)'},{opacity:1,transform:'translateY(0) scale(1)'}],
+    {duration:750,easing:'cubic-bezier(.16,1,.3,1)',fill:'forwards'});
+  requestAnimationFrame(()=>requestAnimationFrame(()=>m.classList.add('in')));
+  const hold=1900+text.split(' ').length*220;
+  hideT=setTimeout(()=>{if(current===m){leave(m,false);current=null}},hold);
+}
+
+/* ---------- Flow ---------- */
+function pick(o,x,y){
+  if(!running||idx>=msgs.length||o.done)return;
+  o.done=true;popHeart(o);hint.classList.add('off');
+  burst(x,y,9);
+  showMsg(msgs[idx]);idx++;paint();
+  if(idx===msgs.length){running=false;setTimeout(finale,3000)}
+}
+function finale(){
+  hearts.forEach(o=>o.el.remove());hearts=[];
+  document.body.classList.add('ended');
+  end.classList.add('show');
+  const f=$('final');f.textContent='';f.classList.add('caret');
+  let i=0;
+  const t=setInterval(()=>{
+    f.textContent=FINAL.slice(0,++i);
+    if(i>=FINAL.length){clearInterval(t);setTimeout(()=>f.classList.remove('caret'),1200)}
+  },130);
+  for(let k=0;k<5;k++)setTimeout(()=>burst(innerWidth*(.15+Math.random()*.7),innerHeight*(.25+Math.random()*.5),14),k*320);
+}
+function start(){
+  idx=0;running=true;acc=0;paint();
+  document.body.classList.remove('ended');
+  end.classList.remove('show');hint.classList.remove('off');
+  clearTimeout(hideT);if(current){current.remove();current=null}
+  hearts.forEach(o=>o.el.remove());hearts=[];
+  for(let k=0;k<7;k++)spawn(Math.random()*innerHeight*.75);
+}
+$('start').addEventListener('click',()=>{intro.classList.add('hide');start()});
+$('again').addEventListener('click',start);
+paint();
+
+/* ---------- Animated love background ---------- */
+(function(){
+  const cv=$('bg'),cx=cv.getContext('2d');
+  const P=new Path2D('M16 28.2C-6 13.5 3.5-1.5 16 7.2 28.5-1.5 38 13.5 16 28.2Z');
+  let W=0,H=0,dpr=1,items=[],sparks=[],pal=['#d11f4d','#ff5f86','#ff7a9c'],mx=0,my=0,tx=0,ty=0,prev=0;
+  const dark=matchMedia('(prefers-color-scheme: dark)');
+  function readPal(){
+    const s=getComputedStyle(document.documentElement);
+    pal=[s.getPropertyValue('--rose').trim()||pal[0],s.getPropertyValue('--rose-2').trim()||pal[1],'#ff7a9c'];
+  }
+  function make(init){
+    const d=Math.random(),size=10+d*d*42;
+    return{d,size,x:Math.random()*W,y:init?Math.random()*H:H+size+Math.random()*H*.25,
+      vy:reduce?0:12+d*40,amp:6+d*22,f:.3+Math.random()*.5,ph:Math.random()*6.28,
+      rot:(Math.random()-.5)*.6,c:Math.floor(Math.random()*3),a:d>.8?.10:.15+Math.random()*.15,t:0};
+  }
+  function resize(){
+    W=innerWidth;H=innerHeight;dpr=Math.min(devicePixelRatio||1,2);
+    cv.width=W*dpr;cv.height=H*dpr;
+    const n=Math.max(26,Math.min(60,Math.round(W*H/15000)));
+    items=Array.from({length:n},()=>make(true));
+    sparks=Array.from({length:34},()=>({x:Math.random()*W,y:Math.random()*H,r:.8+Math.random()*1.8,s:.8+Math.random()*1.6,ph:Math.random()*6.28}));
+  }
+  function loop(now){
+    requestAnimationFrame(loop);
+    const dt=Math.min((now-prev)/1000,.05);prev=now;const t=now/1000;
+    mx+=(tx-mx)*.04;my+=(ty-my)*.04;
+    let beat=0;
+    if(!reduce){const b=(t%1.5)/1.5;beat=Math.exp(-Math.pow((b-.08)/.05,2))+.7*Math.exp(-Math.pow((b-.26)/.06,2))}
+    const sc=1+.08*beat;
+    cx.setTransform(dpr,0,0,dpr,0,0);cx.clearRect(0,0,W,H);
+    cx.fillStyle=pal[1];
+    for(const k of sparks){
+      cx.globalAlpha=.12+.32*(.5+.5*Math.sin(t*k.s+k.ph));
+      cx.beginPath();cx.arc(k.x,k.y,k.r,0,6.283);cx.fill();
+    }
+    for(const it of items){
+      it.t+=dt;it.y-=it.vy*dt;
+      if(it.y<-it.size*2){Object.assign(it,make(false),{x:Math.random()*W})}
+      const px=it.x+Math.sin(it.ph+it.t*it.f)*it.amp+mx*it.d*34;
+      const py=it.y+my*it.d*24;
+      const fade=Math.min(1,(H+it.size-it.y)/110,Math.max(0,it.y+it.size)/110);
+      cx.setTransform(dpr,0,0,dpr,0,0);
+      cx.translate(px,py);cx.rotate(it.rot+Math.sin(it.ph+it.t*it.f)*.16);
+      const k=it.size*sc/32;cx.scale(k,k);cx.translate(-16,-14.5);
+      cx.globalAlpha=it.a*Math.max(0,fade);cx.fillStyle=pal[it.c];cx.fill(P);
+    }
+  }
+  addEventListener('pointermove',e=>{tx=e.clientX/W*2-1;ty=e.clientY/H*2-1},{passive:true});
+  addEventListener('resize',resize);
+  dark.addEventListener&&dark.addEventListener('change',readPal);
+  readPal();resize();requestAnimationFrame(t=>{prev=t;requestAnimationFrame(loop)});
+})();
+</script>
+</body>
+</html>
